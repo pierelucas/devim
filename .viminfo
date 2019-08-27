@@ -1,0 +1,41 @@
+# Diese viminfo-Datei wurde von Vim 8.0 generiert.
+# Sie können sie verändern, wenn Sie vorsichtig vorgehen!
+
+# Viminfo version
+|1,4
+
+# Wert von 'encoding', als diese Datei geschrieben wurde
+*encoding=utf-8
+
+
+# hlsearch on (H) or off (h):
+~h
+# Befehlszeile Geschichte (neueste bis älteste):
+:q
+|2,0,1566818961,,"q"
+
+# Suchausdruck Geschichte (neueste bis älteste):
+
+# Ausdruck Geschichte (neueste bis älteste):
+
+# Eingabe-Zeile Geschichte (neueste bis älteste):
+
+# Debug-Zeile Geschichte (neueste bis älteste):
+
+# Register:
+
+# Datei-Marken:
+'0  3  0  ~/.ssh/known_hosts
+|4,48,3,0,1566818961,"~/.ssh/known_hosts"
+
+# Geschichte (neueste zuerst):
+-'  3  0  ~/.ssh/known_hosts
+|4,39,3,0,1566818961,"~/.ssh/known_hosts"
+-'  1  0  ~/.ssh/known_hosts
+|4,39,1,0,1566818951,"~/.ssh/known_hosts"
+
+# Geschichte der Markierungen innerhalb von Dateien (neueste zuerst):
+
+> ~/.ssh/known_hosts
+	*	1566818960	0
+	"	3	0
