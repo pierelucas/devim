@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/opt:/opt/bin:/usr/games:/usr/games/bin:/usr/local/games:/usr/local/games/bin:$PATH
+export PATH=$HOME/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/opt:/opt/bin:/usr/games:/usr/games/bin:/usr/local/games:/usr/local/games/bin:/home/pierelucas/tools/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/pierelucas/.oh-my-zsh"
@@ -42,7 +42,7 @@ DISABLE_UPDATE_PROMPT="true"
 DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -73,6 +73,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+setopt auto_cd
 
 # Exports
 export LD_PRELOAD=""
@@ -104,7 +105,7 @@ fi
 # colored GCC warnings and errors
 export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
 
-# Aliases
+# Aliaases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="thunar ~/.oh-my-zsh"
 alias l="exa -a --color=always"
@@ -115,6 +116,11 @@ alias vi="vim"
 alias wget="wget -U 'noleak'"
 alias curl="curl --user-agent 'noleak'"
 alias syslog="tail /var/log/syslog"
+
+# Global Aliasses (alias -g)
+
+# Suffix Aliaases (alias -s)
+alias -a txt="vi"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert

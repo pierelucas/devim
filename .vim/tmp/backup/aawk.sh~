@@ -1,0 +1,11 @@
+#!/bin/bash
+# Demonstriert das Kommando awk im Shellscript
+# Script-Name: aawk
+
+zeichen="Piere Lucas"
+
+laenge=`echo ${zeichen} | awk '{print length(${zeichen})}'`
+
+echo "${zeichen} enthaelt ${laenge} Zeichen"
+
+exit
