@@ -10,6 +10,7 @@ filetype off                   " required!
 
  call neobundle#rc(expand('~/.vim/bundle/'))
 " }}}
+
 " Basic options ----------------------------------------------------------- {{{
 
 " file type and syntax highliting on
@@ -29,9 +30,13 @@ set laststatus=2
 set nomodeline
 set showcmd
 set showmatch
+
+" Tab Styling
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
-set expandtab
+set noexpandtab
+
 set cinoptions=(0,m1,:1
 set formatoptions=tcqr2
 set laststatus=2
@@ -109,6 +114,12 @@ endif
 set background=dark
 colorscheme afterglow
 " }}}
+
+" Column Color Stop {{{
+set colorcolumn=80
+highlight ColorColumn ctermbg=red
+" }}}
+
 " Statusline {{{
 set statusline=
 set statusline+=%7*\[%n]                                  "buffernr
@@ -121,9 +132,8 @@ set statusline+=%5*\ %{&spelllang}\                       "Spellanguage
 set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             "Rownumber/total (%)
 set statusline+=%9*\ col:%03c\                            "Colnr
 set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly?  Top/bot.
-
-
 " }}}
+
 " Folding {{{
 set foldlevelstart=0
 
@@ -132,6 +142,7 @@ nnoremap <Space> za
 vnoremap <Space> za
 " }}}
 " }}}
+
 " Mappings ---------------------------------------------------------------- {{{
 " Easy buffer navigation
 noremap <C-h> <C-w>h
@@ -143,14 +154,15 @@ noremap <leader>v <C-w>v
 
 " Quick editing {{{
 nnoremap <leader>ev :vsplit ~/.vimrc<cr>
+" }}}
+" }}}
 
-" }}}
-" }}}
 " Plugin settings --------------------------------------------------------- {{{
 " NeoBundle {{{
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 "Github
+NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'scrooloose/nerdtree'
@@ -158,6 +170,7 @@ NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc', {'build' : {'unix' : 'make -f make_unix.mal',},}
 " }}}
+
 " NERD Tree {{{
 
 noremap  <F2> :NERDTreeToggle<cr>
@@ -180,11 +193,12 @@ let NERDTreeDirArrows = 1
 let NERDChristmasTree = 1
 let NERDTreeChDirMode = 2
 let NERDTreeMapJumpFirstChild = 'gK'
-
 " }}}
+
 " Tagbar {{{
 nnoremap <F9> :TagbarToggle<CR>
 " }}}
+
 " Unite {{{
 nnoremap <C-s> :Unite file_rec/async<cr>
 nnoremap <leader>/ :Unite grep:.<cr>

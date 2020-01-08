@@ -15,8 +15,8 @@ set -s escape-time 10                     # faster command sequences
 set -sg repeat-time 600                   # increase repeat timeout
 set -s focus-events on
 
-set -g prefix2 C-a                        # GNU-Screen compatible prefix
-bind C-a send-prefix -2
+set -g prefix2 C-y                       # GNU-Screen compatible prefix
+bind C-y send-prefix -2
 
 set -q -g status-utf8 on                  # expect UTF-8 (tmux < 2.2)
 setw -q -g utf8 on
@@ -62,17 +62,17 @@ bind C-c new-session
 bind C-f command-prompt -p find-session 'switch-client -t %%'
 
 # split current window horizontally
-bind - split-window -v
+bind < split-window -v
 # split current window vertically
-bind _ split-window -h
+bind > split-window -h
 
 # pane navigation
 bind -r h select-pane -L  # move left
 bind -r j select-pane -D  # move down
 bind -r k select-pane -U  # move up
 bind -r l select-pane -R  # move right
-bind > swap-pane -D       # swap current pane with the next one
-bind < swap-pane -U       # swap current pane with the previous one
+#bind > swap-pane -D       # swap current pane with the next one
+#bind < swap-pane -U       # swap current pane with the previous one
 
 # maximize current pane
 bind + run 'cut -c3- ~/.tmux.conf | sh -s _maximize_pane "#{session_name}" #D'
