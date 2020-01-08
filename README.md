@@ -8,6 +8,10 @@ A NEOBUNDLE VIM CONFIGURATION
 
 copy all files in your $HOME
 
-open vim and type "NeoBundleInstall" on the VIM CLI to reinstall Vim-Airline andupdate all plugins
+open vim and type "NeoBundleInstall" on the VIM CLI to reinstall Vim-Airline
+and YouCompleteMe.
+
+To install YouCompleteMe:
+python3 .vim/bundle/YouCompleteMe/install.py --clangd-complete
 
 thats all :)
