@@ -162,6 +162,7 @@ nnoremap <leader>ev :vsplit ~/.vimrc<cr>
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 "Github
+NeoBundle 'ycm-core/YouCompleteMe'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'majutsushi/tagbar'
