@@ -16,7 +16,7 @@ filetype plugin indent on
 syntax on
 
 " specific settings
-set cursorline			" nocursorline for no cursor line.
+set cursorline          " nocursorline for no cursor line.
 set nostartofline       " Keep the horizontal cursorline when moving vertically.
 set title
 set noautoindent
@@ -29,6 +29,13 @@ set laststatus=2
 set nomodeline
 set showcmd
 set showmatch
+set cinoptions=(0,m1,:1
+set formatoptions=tcqr2
+set laststatus=2
+set clipboard=unnamed
+set smartcase
+set sidescroll=5
+set scrolloff=4
 
 " Vi command autocompletion
 set wildmenu
@@ -39,23 +46,12 @@ set lazyredraw
 " Tab Styling
 set tabstop=4
 set softtabstop=4
+set showtabline=1
 set shiftwidth=4
 set expandtab
 
 " Do not break long lines.
 set nowrap
-set listchars=eol:$,extends:>
-
-set cinoptions=(0,m1,:1
-set formatoptions=tcqr2
-set laststatus=2
-set nomodeline
-set clipboard=unnamed
-set softtabstop=4
-set showtabline=1
-set smartcase
-set sidescroll=5
-set scrolloff=4
 
 " Searching
 set incsearch
@@ -73,7 +69,7 @@ set ttimeoutlen=100
 set complete=.,w,b,u,t
 set completeopt=longest,menuone,preview
 
-" Leader
+" Leader Key
 let mapleader = ";"
 let maplocalleader = "\\"
 
@@ -96,7 +92,7 @@ augroup line_return
         \ endif
 augroup END
 
-" Backups
+" Backups.
 set backup                        " enable backups
 set noswapfile                    " it's 2020, Vim.
 set undodir=~/.vim/tmp/undo//     " undo files
@@ -114,15 +110,15 @@ if !isdirectory(expand(&directory))
     call mkdir(expand(&directory), "p")
 endif
 
-" Color scheme
+" Color scheme.
 set background=dark
 colorscheme afterglow
 
-" Column Color Stop
+" Column Color Stop (for checking line length).
 set colorcolumn=80
 highlight ColorColumn ctermbg=darkgrey
 
-" Statusline
+" Statusline.
 set statusline=
 set statusline+=%7*\[%n]                                  "buffernr
 set statusline+=%1*\ %<%F\                                "File+path
@@ -142,53 +138,57 @@ set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly?  
 let g:powerline_pycmd="py3"
 set laststatus=2
 
-" Folding
+" Folding.
 set foldenable
 set foldlevelstart=10
 set foldmethod=indent
 
 " Space to toggle folds.
-nnoremap <Space> za
-vnoremap <Space> za
+"nnoremap <Space> za
+"vnoremap <Space> za
 
-" Mappings
-" Movement Keys
+" Mappings.
+" Movement Keys.
 nnoremap j gj
 nnoremap k gk
 
-" Fast Moevement
+" Fast Moevement.
 " Space = pagedown, ShiftSpace = pageup
 noremap <Space> <PageDown>
 noremap , <PageUp>
 
-" Easy buffer navigation
+" Easy buffer navigation.
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-" Switch Buffer
+" Switch Buffer.
 nnoremap <Tab><Tab> <C-W>w
 
-" Easy split windows and navigate. 
+" Easy split windows. 
 " Vertical split, horizontal split, split filname , hide and close.
 nnoremap <leader>v <C-w>v    
 nnoremap <leader>h <C-w>S
-nnoremap <leader>Q <C-w>Q
 nnoremap <leader>a :split
-"nnoremap <leader>av :vsplit
-nnoremap <leader>q :hide
+nnoremap <leader>av :vsplit
 
-" Quick editing vimrc file
+" Hide split window.
+nnoremap <leader>q :hide<CR>
+
+" Save and close buffer.
+nnoremap <leader>Q :wq<CR>
+
+" Quick editing vimrc file.
 nnoremap <leader>ev :vsplit ~/.vimrc<cr>
 
-" :noh on <leader> key
+" :noh on <leader> key.
 "noremap <leader>h :noh<CR>
 
-" Plugin settings 
-" NeoBundle 
+" Plugin settings.
+" NeoBundle.
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Github
+" Github. Plugins I'm acutally using.
 NeoBundle 'ycm-core/YouCompleteMe'
 "NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'jiangmiao/auto-pairs'
@@ -232,6 +232,8 @@ let g:unite_source_history_yank_enable = 1
 nnoremap <leader>y :Unite history/yank<cr>
 nnoremap <leader>b :Unite -quick-match buffer<cr>
 
+" Some useful functions!
+
 " Toggle between .h and .cpp with <F4> or <leader>T
 function! ToggleBetweenHeaderAndSourceFile()
     let bufname = bufname("%")
@@ -254,3 +256,18 @@ endfunction
 nnoremap <silent> <F4>      :call ToggleBetweenHeaderAndSourceFile()<CR>
 nnoremap <silent> <leader>T :call ToggleBetweenHeaderAndSourceFile()<CR>
 
+" Show tabs, whitespaces, eol and extends. Choose between two modes.
+" Toogle with <leader>l and change mode with <leader>L
+set listchars=space:·
+let listCharMode = 0
+function! ChangeListChars()
+    if g:listCharMode == 0
+        let g:listCharMode = 1
+        set listchars=eol:¬,extends:>,tab:>-,space:·
+    else
+        let g:listCharMode = 0
+        set listchars=space:·
+    endif
+endfunction
+nnoremap <leader>l :set list!<CR>
+nnoremap <leader>L :call ChangeListChars()<CR>
