@@ -1,9 +1,0 @@
-#!/bin/bash
-# Demonstriert sed im Shellscript
-# Script-Name: ased
-
-zeichenkette="... und sie dreht sich doch"
-
-neu=`echo ${zeichenkentte} | sed 's/sie/die Erde/g'`
-
-echo ${neu}

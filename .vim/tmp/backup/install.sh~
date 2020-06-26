@@ -1,3 +1,0 @@
-/bin/bash
-
-ln -s .vim ~/ && ln -s .vimrc ~/ && ln -s .viminfo ~/
